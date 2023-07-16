@@ -1,6 +1,7 @@
 package com.zad.eng.excellence.vsa.security;
 
 import static org.springframework.http.HttpMethod.POST;
+import static org.springframework.http.HttpMethod.GET;
 import static org.springframework.security.config.Customizer.withDefaults;
 import static org.springframework.security.config.http.SessionCreationPolicy.STATELESS;
 
@@ -26,9 +27,9 @@ public class WebSecurityConfiguration  {
 	@Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		http.csrf().disable().authorizeHttpRequests()
-		.antMatchers(POST,"/api/account/**")		
+		.antMatchers(POST,"/api/accounts/**")		
 		.permitAll()
-		.antMatchers(POST,"/**")
+		.antMatchers("/api/**")
 		.authenticated()
         .anyRequest()
         .hasAnyRole("USER", "ADMIN")
