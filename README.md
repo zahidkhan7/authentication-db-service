@@ -1,6 +1,6 @@
 # authentication-db-service
 Authentication Service API Using Database 
-==========================================================================> 
+=====================================================================> 
 1: The Application Manage User Roles and User Account for Authentication.
 
 2: The Application using database for Spring Security Authentication.
@@ -17,7 +17,7 @@ Authentication Service API Using Database
    creating USER_ROLE as the same time.  
    
    
-====================================== SAMPLE CODE ====================================> 
+============================ SAMPLE CODE ===========================> 
 @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		http.csrf().disable().authorizeHttpRequests()
@@ -37,11 +37,13 @@ Authentication Service API Using Database
 	
 Note : As per above Code:
 1: http://localhost:8090/welcome is free to access without authentication
+
 2: http://localhost:8090/api/accounts GET REQUEST Requires Basic Authentication to be given: 
    Means username & password.
    
 3: http://localhost:8090/api/accounts POST Request, Requires Basic Authentication to be given:
   Means username & password. 
+  
   With Sample JSON :
   
   {
@@ -55,6 +57,7 @@ Note : As per above Code:
     ]   
 }
 
+==================================>
 
 @Configuration
 public class SecurityPasswordConfiguration {
@@ -67,5 +70,6 @@ public class SecurityPasswordConfiguration {
 
 With Above Code password is encrypted with BCryptPasswordEncoder.
 
-Note : Application has been tested, If any issue may be later, need issue resolution.
-============================ Closed Project 20 JULY 2023 ============================> 	
+================= Closed Project 20 JULY 2023 ================> 
+
+Note : Application has been tested, If any issue may be later, need issue resolution.	
