@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api")
-public class AuthenticationController {
+@RequestMapping("/welcome")
+public class WelcomeController {
 
 	@GetMapping
 	public String getWelcomeMessage(){

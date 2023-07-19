@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.zad.eng.excellence.vsa.domain.UserAccount;
+import com.zad.eng.excellence.vsa.dto.UserAccountRequest;
+import com.zad.eng.excellence.vsa.dto.UserAccountResponse;
 import com.zad.eng.excellence.vsa.service.UserAccountService;
 import com.zad.eng.excellence.vsa.util.ApplicationUtil;
 
@@ -25,13 +26,13 @@ public class AccountResourceController {
 	}
 
 	@PostMapping
-	public ResponseEntity<UserAccount> createAccount(@RequestBody UserAccount userAccount) {
-		UserAccount newAccount = userAccountService.createUserAccount(userAccount);
-		return ResponseEntity.created(ApplicationUtil.getLocation(newAccount.getId().intValue())).body(newAccount);
+	public ResponseEntity<UserAccountResponse> createAccount(@RequestBody UserAccountRequest userAccountRequest) {
+		UserAccountResponse newAccount = userAccountService.createUserAccount(userAccountRequest);
+		return ResponseEntity.created(ApplicationUtil.getLocation(newAccount.getAccountId().intValue())).body(newAccount);
 	}
 
 	@GetMapping
-	public ResponseEntity<List<UserAccount>> getAccount() {
+	public ResponseEntity<List<UserAccountResponse>> getAccount() {
 		return ResponseEntity.ok(userAccountService.getUserAccounts());
 	}
 
